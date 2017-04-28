@@ -54,7 +54,25 @@ uint8_t* Cropping::Crop(int xmin, int ymin, int xmax, int ymax) const
 					y >= 0 && y < m_height) {
 						int to = ((y - ymin) * w + x-xmin) * m_channels;
 						if (m_flags[m_width * y + x]) {
-							memset(&sub[to], 0, sizeof(uint8_t) * 4);
+							// 0. no pixels
+//							memset(&sub[to], 0, sizeof(uint8_t) * 4);
+
+							//////////////////////////////////////////////////////////////////////////
+
+							// 1. for alpha
+							int from = (y * m_width + x) * m_channels;
+							uint8_t alpha = m_pixels[from + 3];
+							if (alpha > 240) {
+								memcpy(&sub[to], &m_pixels[from], m_channels);
+							} else {
+								memset(&sub[to], 0, sizeof(uint8_t) * 4);
+							}
+
+							//////////////////////////////////////////////////////////////////////////
+
+// 							// 2. alpha * 0.5
+// 							memcpy(&sub[to], &m_pixels[from], m_channels - 1);
+// 							sub[to + 3] = static_cast<uint8_t>(m_pixels[from + 3] * 0.5f);
 						} else {
 							m_flags[m_width * y + x] = true;
 							int from = (y * m_width + x) * m_channels;
