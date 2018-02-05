@@ -1,0 +1,5 @@
+pimg/
+projects/*
+
+!projects/pimg.vcxproj
+!projects/pimg.vcxproj.filters
