@@ -1,5 +1,5 @@
-#include "Condense.h"
-#include "Cropping.h"
+#include "pimg/Condense.h"
+#include "pimg/Cropping.h"
 
 namespace pimg
 {

@@ -1,6 +1,6 @@
-#include "Cropping.h"
-#include "Image.h"
-#include "Rect.h"
+#include "pimg/Cropping.h"
+#include "pimg/Image.h"
+#include "pimg/Rect.h"
 
 #include <string>
 
