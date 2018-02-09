@@ -19,14 +19,15 @@ ImageData::~ImageData()
 {
 	if (m_pixels) {
 		free(m_pixels);
+		m_pixels = nullptr;
 	}
 }
 
 bool ImageData::LoadFromFile(const std::string& filepath)
 {
-	uint8_t* pixels = gimg_import(filepath.c_str(), &m_width, &m_height, &m_format);
+	m_pixels = gimg_import(filepath.c_str(), &m_width, &m_height, &m_format);
 	if (m_format == GPF_RGBA8 && m_pre_mul_alpha) {
-		gimg_pre_mul_alpha(pixels, m_width, m_height);
+		gimg_pre_mul_alpha(m_pixels, m_width, m_height);
 	}
 	return true;
 }
