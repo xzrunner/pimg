@@ -9,11 +9,11 @@
     <ClCompile Include="..\..\..\source\OutlineRaw.cpp">
       <Filter>outline</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\ImageData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\pimg\Condense.h" />
     <ClInclude Include="..\..\..\include\pimg\Cropping.h" />
-    <ClInclude Include="..\..\..\include\pimg\Image.h" />
     <ClInclude Include="..\..\..\include\pimg\Rect.h" />
     <ClInclude Include="..\..\..\include\pimg\OutlineFine.h">
       <Filter>outline</Filter>
@@ -21,6 +21,7 @@
     <ClInclude Include="..\..\..\include\pimg\OutlineRaw.h">
       <Filter>outline</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\ImageData.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="outline">
