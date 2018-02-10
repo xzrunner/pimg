@@ -10,6 +10,16 @@
       <Filter>outline</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\ImageData.cpp" />
+    <ClCompile Include="..\..\..\source\TransToETC2.cpp">
+      <Filter>conv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\TransToPVR.cpp">
+      <Filter>conv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\TransToETC1.cpp">
+      <Filter>conv</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\ImagePack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\pimg\Condense.h" />
@@ -22,10 +32,23 @@
       <Filter>outline</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\pimg\ImageData.h" />
+    <ClInclude Include="..\..\..\include\pimg\TransToPVR.h">
+      <Filter>conv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\TransToETC2.h">
+      <Filter>conv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\TransToETC1.h">
+      <Filter>conv</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\ImagePack.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="outline">
       <UniqueIdentifier>{2b8d6c6c-8594-4c9d-a1e9-85018aeed9f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="conv">
+      <UniqueIdentifier>{f0e08787-b6d6-454f-aada-aa5e1c46b2f1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -530,9 +530,9 @@ void OutlineFine::ReduceEdge(float area_tol, float perimeter_tol)
 			}
 
 			bool inside_s = sm::is_between(start_prev.x, start.x, intersect.x) 
-				&& sm::is_between(start_prev.y, start.y, intersect.y);
-			bool inside_e = sm::is_between(end.x, end_next.x, intersect.x) 
-				&& sm::is_between(end.y, end_next.y, intersect.y);
+				         && sm::is_between(start_prev.y, start.y, intersect.y);
+			bool inside_e = sm::is_between(end.x, end_next.x, intersect.x)
+				         && sm::is_between(end.y, end_next.y, intersect.y);
 			// add new triangle, area increase & perimeter increase
 			if (!inside_s && !inside_e) 
 			{

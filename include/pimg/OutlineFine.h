@@ -1,5 +1,5 @@
-#ifndef _EASYIMAGE_EXTRACT_OUTLINE_FINE_H_
-#define _EASYIMAGE_EXTRACT_OUTLINE_FINE_H_
+#ifndef _PIMG_EXTRACT_OUTLINE_FINE_H_
+#define _PIMG_EXTRACT_OUTLINE_FINE_H_
 
 #include <cu/cu_stl.h>
 #include <SM_Vector.h>
@@ -60,4 +60,4 @@ private:
 
 }
 
-#endif // _EASYIMAGE_EXTRACT_OUTLINE_FINE_H_
+#endif // _PIMG_EXTRACT_OUTLINE_FINE_H_

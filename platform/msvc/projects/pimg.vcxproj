@@ -53,7 +53,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\..\sm\src\sm;..\..\..\..\cu\src;..\..\..\..\gimg\src\gimg;..\..\..\..\guard\include;..\..\..\..\memmgr\include;..\..\..\..\external\boost\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\..\sm\src\sm;..\..\..\..\cu\src;..\..\..\..\gimg\src\gimg;..\..\..\..\guard\include;..\..\..\..\memmgr\include;..\..\..\..\external\boost\include;..\..\..\..\external\rg_etc1;..\..\..\..\external\etcpack;..\..\..\..\external\pvrtextool\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -67,7 +67,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\..\sm\src\sm;..\..\..\..\cu\src;..\..\..\..\gimg\src\gimg;..\..\..\..\guard\include;..\..\..\..\memmgr\include;..\..\..\..\external\boost\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\..\sm\src\sm;..\..\..\..\cu\src;..\..\..\..\gimg\src\gimg;..\..\..\..\guard\include;..\..\..\..\memmgr\include;..\..\..\..\external\boost\include;..\..\..\..\external\rg_etc1;..\..\..\..\external\etcpack;..\..\..\..\external\pvrtextool\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -80,16 +80,24 @@
     <ClCompile Include="..\..\..\source\Condense.cpp" />
     <ClCompile Include="..\..\..\source\Cropping.cpp" />
     <ClCompile Include="..\..\..\source\ImageData.cpp" />
+    <ClCompile Include="..\..\..\source\ImagePack.cpp" />
     <ClCompile Include="..\..\..\source\OutlineFine.cpp" />
     <ClCompile Include="..\..\..\source\OutlineRaw.cpp" />
+    <ClCompile Include="..\..\..\source\TransToETC1.cpp" />
+    <ClCompile Include="..\..\..\source\TransToETC2.cpp" />
+    <ClCompile Include="..\..\..\source\TransToPVR.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\pimg\Condense.h" />
     <ClInclude Include="..\..\..\include\pimg\Cropping.h" />
     <ClInclude Include="..\..\..\include\pimg\ImageData.h" />
+    <ClInclude Include="..\..\..\include\pimg\ImagePack.h" />
     <ClInclude Include="..\..\..\include\pimg\OutlineFine.h" />
     <ClInclude Include="..\..\..\include\pimg\OutlineRaw.h" />
     <ClInclude Include="..\..\..\include\pimg\Rect.h" />
+    <ClInclude Include="..\..\..\include\pimg\TransToETC1.h" />
+    <ClInclude Include="..\..\..\include\pimg\TransToETC2.h" />
+    <ClInclude Include="..\..\..\include\pimg\TransToPVR.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
