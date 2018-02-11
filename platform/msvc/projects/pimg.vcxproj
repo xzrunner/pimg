@@ -83,18 +83,35 @@
     <ClCompile Include="..\..\..\source\ImagePack.cpp" />
     <ClCompile Include="..\..\..\source\OutlineFine.cpp" />
     <ClCompile Include="..\..\..\source\OutlineRaw.cpp" />
+    <ClCompile Include="..\..\..\source\PixelAreaLUT.cpp" />
+    <ClCompile Include="..\..\..\source\PixelCoveredLUT.cpp" />
+    <ClCompile Include="..\..\..\source\PixelEdgeTable.cpp" />
+    <ClCompile Include="..\..\..\source\PixelUncoveredLUT.cpp" />
+    <ClCompile Include="..\..\..\source\RectPostProcessor.cpp" />
+    <ClCompile Include="..\..\..\source\RegularRectCondense.cpp" />
+    <ClCompile Include="..\..\..\source\RegularRectCut.cpp" />
+    <ClCompile Include="..\..\..\source\RegularRectMerge.cpp" />
     <ClCompile Include="..\..\..\source\TransToETC1.cpp" />
     <ClCompile Include="..\..\..\source\TransToETC2.cpp" />
     <ClCompile Include="..\..\..\source\TransToPVR.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\include\pimg\CRect.h" />
     <ClInclude Include="..\..\..\include\pimg\Condense.h" />
     <ClInclude Include="..\..\..\include\pimg\Cropping.h" />
     <ClInclude Include="..\..\..\include\pimg\ImageData.h" />
     <ClInclude Include="..\..\..\include\pimg\ImagePack.h" />
     <ClInclude Include="..\..\..\include\pimg\OutlineFine.h" />
     <ClInclude Include="..\..\..\include\pimg\OutlineRaw.h" />
+    <ClInclude Include="..\..\..\include\pimg\PixelAreaLUT.h" />
+    <ClInclude Include="..\..\..\include\pimg\PixelCoveredLUT.h" />
+    <ClInclude Include="..\..\..\include\pimg\PixelEdgeTable.h" />
+    <ClInclude Include="..\..\..\include\pimg\PixelUncoveredLUT.h" />
     <ClInclude Include="..\..\..\include\pimg\Rect.h" />
+    <ClInclude Include="..\..\..\include\pimg\RectPostProcessor.h" />
+    <ClInclude Include="..\..\..\include\pimg\RegularRectCondense.h" />
+    <ClInclude Include="..\..\..\include\pimg\RegularRectCut.h" />
+    <ClInclude Include="..\..\..\include\pimg\RegularRectMerge.h" />
     <ClInclude Include="..\..\..\include\pimg\TransToETC1.h" />
     <ClInclude Include="..\..\..\include\pimg\TransToETC2.h" />
     <ClInclude Include="..\..\..\include\pimg\TransToPVR.h" />

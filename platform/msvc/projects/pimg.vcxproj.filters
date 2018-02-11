@@ -20,6 +20,30 @@
       <Filter>conv</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\ImagePack.cpp" />
+    <ClCompile Include="..\..\..\source\PixelAreaLUT.cpp">
+      <Filter>atuo_rect_cut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\PixelCoveredLUT.cpp">
+      <Filter>atuo_rect_cut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\PixelEdgeTable.cpp">
+      <Filter>atuo_rect_cut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\PixelUncoveredLUT.cpp">
+      <Filter>atuo_rect_cut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\RectPostProcessor.cpp">
+      <Filter>atuo_rect_cut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\RegularRectCondense.cpp">
+      <Filter>atuo_rect_cut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\RegularRectCut.cpp">
+      <Filter>atuo_rect_cut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\RegularRectMerge.cpp">
+      <Filter>atuo_rect_cut</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\pimg\Condense.h" />
@@ -42,6 +66,33 @@
       <Filter>conv</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\pimg\ImagePack.h" />
+    <ClInclude Include="..\..\..\include\pimg\PixelAreaLUT.h">
+      <Filter>atuo_rect_cut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\PixelCoveredLUT.h">
+      <Filter>atuo_rect_cut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\PixelEdgeTable.h">
+      <Filter>atuo_rect_cut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\PixelUncoveredLUT.h">
+      <Filter>atuo_rect_cut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\RectPostProcessor.h">
+      <Filter>atuo_rect_cut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\RegularRectCondense.h">
+      <Filter>atuo_rect_cut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\RegularRectCut.h">
+      <Filter>atuo_rect_cut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\RegularRectMerge.h">
+      <Filter>atuo_rect_cut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\CRect.h">
+      <Filter>atuo_rect_cut</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="outline">
@@ -49,6 +100,9 @@
     </Filter>
     <Filter Include="conv">
       <UniqueIdentifier>{f0e08787-b6d6-454f-aada-aa5e1c46b2f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="atuo_rect_cut">
+      <UniqueIdentifier>{08281556-1998-49cc-b26e-d2e1ff00290c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
