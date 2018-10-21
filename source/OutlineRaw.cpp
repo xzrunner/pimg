@@ -81,7 +81,7 @@ void OutlineRaw::CreateBorderPoints()
 
 void OutlineRaw::CreateBorderLineAndMerge()
 {
-	CreateBorderLine();	
+	CreateBorderLine();
 	MergeBorderLine();
 }
 
@@ -117,7 +117,7 @@ void OutlineRaw::CreateBorderLine()
 	sm::vec2 curr_pos = first;
 	bool curr_valid = first.IsValid();
 	int curr_dir = -1;
-	while (curr_valid) 
+	while (curr_valid)
 	{
 		// finish
 		if (!m_border_line.empty() &&
@@ -173,7 +173,7 @@ void OutlineRaw::CreateBorderLine()
 					m_border_line.push_back(new_pos);
 				}
 			}
-		}	
+		}
 	}
 
 	delete[] flag;
@@ -198,7 +198,7 @@ bool OutlineRaw::IsPixelBorder(int x, int y) const
 	}
 
 	for (int i = 0; i < NEARBY_COUNT; ++i) {
-		if (IsPixelTransparente(static_cast<int>(x+NEARBY_OFFSET[i].x), 
+		if (IsPixelTransparente(static_cast<int>(x+NEARBY_OFFSET[i].x),
 			static_cast<int>(y+NEARBY_OFFSET[i].y))) {
 			return true;
 		}
@@ -212,7 +212,7 @@ bool OutlineRaw::IsPixelTransparente(int x, int y) const
 		y < 0 || y >= m_height) {
 		return true;
 	}
-	
+
 	uint8_t alpha = m_pixels[(y*m_width+x)*4+3];
 	return alpha == 0;
 }

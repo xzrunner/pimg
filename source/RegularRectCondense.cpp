@@ -35,7 +35,7 @@ void RegularRectCondense::Condense(const CRect& r)
 
 void RegularRectCondense::Remove(const CRect& r)
 {
-	assert(r.x >= 0 && r.x < m_width 
+	assert(r.x >= 0 && r.x < m_width
 		&& r.y >= 0 && r.y < m_height);
 	Grid* g = m_pixels[r.y * m_width + r.x]->QueryGrid(r);
 	assert(g->r == r);
@@ -71,7 +71,7 @@ void RegularRectCondense::GetSortedCRects(CU_VEC<CRect>& rects) const
 	}
 }
 
-void RegularRectCondense::LoadPixels(const CU_VEC<CRect>& rects, 
+void RegularRectCondense::LoadPixels(const CU_VEC<CRect>& rects,
 									 bool* ori_pixels)
 {
 	int sz = m_width * m_height;
@@ -86,10 +86,10 @@ void RegularRectCondense::LoadPixels(const CU_VEC<CRect>& rects,
 		Grid* grid = new Grid(r);
 		m_grids.push_back(grid);
 		for (int y = r.y; y < r.y + r.h; ++y) {
-			if (y < 0) { continue; } 
+			if (y < 0) { continue; }
 			else if (y >= m_height) { break; }
 			for (int x = r.x; x < r.x + r.w; ++x) {
-				if (x < 0) { continue; } 
+				if (x < 0) { continue; }
 				else if (x >= m_width) { break; }
 				m_pixels[y*m_width+x]->Insert(grid);
 			}
@@ -281,7 +281,7 @@ bool RegularRectCondense::CondenseCovered(Grid* s, Grid* l)
 
 	// contain
 	if (sr.x >= lr.x && (sr.x + sr.w <= lr.x + lr.w) &&
-		sr.y >= lr.y && (sr.y + sr.h <= lr.y + lr.h)) 
+		sr.y >= lr.y && (sr.y + sr.h <= lr.y + lr.h))
 	{
 		RemovePixelGrid(sr, s);
 		s->r.w = 0;
@@ -322,21 +322,21 @@ void RegularRectCondense::RemoveSize(Grid* g, Direction dir, int len)
 
 	CRect rm = g->r;
 	CRect rn = g->r;
-	if (dir == e_left) 
+	if (dir == e_left)
 	{
 		assert(len <= g->r.w);
 		rm.w = len;
 		rn.w -= len;
 		rn.x += len;
-	} 
-	else if (dir == e_right) 
+	}
+	else if (dir == e_right)
 	{
 		assert(len <= g->r.w);
 		rm.w = len;
 		rm.x = g->r.x + g->r.w - len;
 		rn.w -= len;
-	} 
-	else if (dir == e_down) 
+	}
+	else if (dir == e_down)
 	{
 		assert(len <= g->r.h);
 		rm.h = len;
@@ -350,7 +350,7 @@ void RegularRectCondense::RemoveSize(Grid* g, Direction dir, int len)
 		rm.y = g->r.y + g->r.h - len;
 		rn.h -= len;
 	}
-	
+
 	RemovePixelGrid(rm, g);
 
 	g->r = rn;
@@ -382,7 +382,7 @@ void RegularRectCondense::InsertPixelGrid(const CRect& r, Grid* g)
 
 bool RegularRectCondense::IsCRectIntersect(const CRect& r0, const CRect& r1) const
 {
-	if (r0.x + r0.w - 1 < r1.x || 
+	if (r0.x + r0.w - 1 < r1.x ||
 		r0.x > r1.x + r1.w - 1 ||
 		r0.y + r0.h - 1 < r1.y ||
 		r0.y > r1.y + r1.h - 1) {
@@ -397,7 +397,7 @@ bool RegularRectCondense::IsCRectIntersect(const CRect& r0, const CRect& r1) con
 //////////////////////////////////////////////////////////////////////////
 
 bool RegularRectCondense::AreaCmp::
-operator () (const Grid* g0, const Grid* g1) const 
+operator () (const Grid* g0, const Grid* g1) const
 {
 	return g0->r.w * g0->r.h < g1->r.w * g1->r.h;
 }
@@ -413,7 +413,7 @@ Insert(Grid* g)
 		if (m_grids[i] == g) {
 			return;
 		}
-	}	
+	}
 	m_grids.push_back(g);
 }
 

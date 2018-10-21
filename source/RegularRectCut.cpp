@@ -62,7 +62,7 @@ void RegularRectCut::AutoCut()
 // 			break;
 // 		}
 // 		m_area_array->CutByCRect(x, y, TRY_MIN_EDGE, TRY_MIN_EDGE, m_left_area);
-// 
+//
 // 		m_result.push_back(CRect(x, y, TRY_MIN_EDGE, TRY_MIN_EDGE));
 // 	}
 
@@ -91,7 +91,7 @@ void RegularRectCut::LoadPixels(const uint8_t* pixels, int width, int height)
 	memset(m_pixels, 0, sz * sizeof(bool));
 	int ptr = 3;
 	for (int i = 0; i < sz; ++i) {
-		if (pixels[ptr]) { 
+		if (pixels[ptr]) {
 			m_pixels[i] = true;
 			++m_left_area;
 		}
@@ -154,7 +154,7 @@ void RegularRectCut::AutoCutWithLimit(float limit)
 						if (m_area_array->GetCRectArea(x, y, hw, hh) < area_limit_min ||
 							m_area_array->GetCRectArea(x, y+hh, hw, hh) < area_limit_min) {
 							success = false;
-						}						
+						}
 					}
 				}
 
@@ -162,7 +162,7 @@ void RegularRectCut::AutoCutWithLimit(float limit)
 					m_area_array->CutByCRect(x, y, w, h, m_left_area);
 					m_result.push_back(CRect(x, y, w, h));
 				}
-			} while(success && m_left_area > 0);	
+			} while(success && m_left_area > 0);
 		}
 	}
 }
@@ -183,7 +183,7 @@ int RegularRectCut::CalBestCRectPos(int w, int h, int& ret_x, int& ret_y)
 	}
 
 	if (max_area < 0) {
-		return 0;	
+		return 0;
 	} else {
 		ret_x = max_x;
 		ret_y = max_y;

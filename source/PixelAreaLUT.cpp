@@ -52,7 +52,7 @@ void PixelAreaLUT::CutByCRect(int _x, int _y, int _w, int _h, int& left_area)
 	for (int y = _y; y < m_height; ++y) {
 		for (int x = _x; x < m_width; ++x) {
 			int curr_idx = y * m_width + x;
-			
+
 			int left = x > 0 ? m_area[curr_idx-1] : 0;
 			int down = y > 0 ? m_area[curr_idx-m_width] : 0;
 			int left_down = (x > 0 && y > 0) ? m_area[curr_idx-m_width-1] : 0;
@@ -79,7 +79,7 @@ void PixelAreaLUT::FixPixelsToBlock4()
 		bh = static_cast<int>(std::ceil(m_height / 4.0f));
 	bool* bpixels = new bool[bw * bh];
 	memset(bpixels, 0, sizeof(bool) * bw * bh);
-	
+
 	for (int y = 0; y < m_height; ++y) {
 		for (int x = 0; x < m_width; ++x) {
 			if (m_pixels[y * m_width + x]) {

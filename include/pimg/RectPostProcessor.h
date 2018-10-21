@@ -14,10 +14,10 @@ class PixelCoveredLUT;
 class CRectPostProcessor
 {
 public:
-	CRectPostProcessor(const CU_VEC<CRect>& rects, 
+	CRectPostProcessor(const CU_VEC<CRect>& rects,
 		int width, int height, bool* ori_pixels);
 	~CRectPostProcessor();
-	
+
 	//////////////////////////////////////////////////////////////////////////
 
 	void Condense();
@@ -54,7 +54,7 @@ private:
 
 	void UpdateFreedom(Item* item);
 	bool IsNoCoverdSide(Item* item, Direction dir) const;
-	
+
 	bool IsAlignBetter(Item* item, Direction dir) const;
 
 	bool MoveItem(Item* item, Direction dir);

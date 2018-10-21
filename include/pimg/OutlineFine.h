@@ -36,10 +36,10 @@ private:
 	void StartPosExplore(const sm::vec2& p0, const sm::vec2& p1,
 		float& start_scale, float& end_scale, sm::vec2& mid, float& score) const;
 	// end_scale [in & out], mid [out], score [in & out]
-	void EndPosExplore(float step, const sm::vec2& p0, const sm::vec2& p1, float start_scale, 
+	void EndPosExplore(float step, const sm::vec2& p0, const sm::vec2& p1, float start_scale,
 		float& end_scale, sm::vec2& mid, float& score) const;
 	// mid [out], score [out]
-	void MidPosExplore(const sm::vec2& start, const sm::vec2& end, 
+	void MidPosExplore(const sm::vec2& start, const sm::vec2& end,
 		sm::vec2& mid, float& score) const;
 
 	// decrease the size of m_fine_border

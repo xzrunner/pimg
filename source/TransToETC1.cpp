@@ -76,7 +76,7 @@ void TransToETC1::InitSrcImage(const uint8_t* pixels, int width, int height, int
 	GD_ASSERT(channels == 4, "err channels.");
 	if (sm::is_power_of_two(width) &&
 		sm::is_power_of_two(height) &&
-		width == height) 
+		width == height)
 	{
 		m_width = width;
 		m_height = height;
@@ -221,7 +221,7 @@ void TransToETC1::EncodeETC1ByEtcPack()
 			ptr_rgb[5] = (block2 >> 16) & 0xFF;
 			ptr_rgb[6] = (block2 >> 8) & 0xFF;
 			ptr_rgb[7] =  block2 & 0xFF;
-			ptr_rgb += 8;			
+			ptr_rgb += 8;
 			// alpha
 			compressBlockETC1Exhaustive(alpha_rgb, alpha_dec, m_width, m_height, x * 4, y * 4, block1, block2);
 			ptr_alpha[0] = (block1 >> 24) & 0xFF;

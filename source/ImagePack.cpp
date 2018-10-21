@@ -25,11 +25,11 @@ ImagePack::~ImagePack()
 	delete[] m_pixels;
 }
 
-void ImagePack::AddImage(const uint8_t* src_buf, int src_w, int src_h, int dst_x, int dst_y, 
+void ImagePack::AddImage(const uint8_t* src_buf, int src_w, int src_h, int dst_x, int dst_y,
 						 PackType type, bool bpp4, int extrude_left, int extrude_bottom, int extrude_right, int extrude_up)
 {
 	GD_ASSERT(dst_x >= 0 && dst_y >= 0, "err params.");
-	if (type == PT_NORMAL) 
+	if (type == PT_NORMAL)
 	{
 		GD_ASSERT(dst_x + src_w <= m_width && dst_y + src_h <= m_height, "err img.");
 		for (int iy = 0; iy < src_h; ++iy) {
@@ -85,8 +85,8 @@ void ImagePack::AddImage(const uint8_t* src_buf, int src_w, int src_h, int dst_x
 				CopyPixel(src_buf, src_w, src_h, bpp4, src_w - 1, src_h - 1, dst_x + src_w + x, dst_y + src_h + y);
 			}
 		}
-	} 
-	else 
+	}
+	else
 	{
 		GD_ASSERT(dst_x + src_h <= m_width && dst_y + src_w <= m_height, "err img.");
 		if (type == PT_CLOCKWISE) {
@@ -152,7 +152,7 @@ void ImagePack::AddImage(const uint8_t* src_buf, int src_w, int src_h, int dst_x
 			// left
 			for (int i = 0; i < extrude_left; ++i) {
 				for (int y = 0; y < src_h; ++y) {
-					CopyPixel(src_buf, src_w, src_h, bpp4, 0, y, dst_x + y, dst_y + src_w + i);					
+					CopyPixel(src_buf, src_w, src_h, bpp4, 0, y, dst_x + y, dst_y + src_w + i);
 				}
 			}
 			// right
@@ -201,7 +201,7 @@ void ImagePack::AddImage(const uint8_t* src_buf, int src_w, int src_h, int dst_x
 	}
 }
 
-void ImagePack::AddImage(const ImageData& img, int x, int y, int w, int h, bool rotate, bool clockwise, 
+void ImagePack::AddImage(const ImageData& img, int x, int y, int w, int h, bool rotate, bool clockwise,
 						 bool bpp4, int extrude_left, int extrude_bottom, int extrude_right, int extrude_up)
 {
 	int sw = img.GetWidth(),
@@ -223,15 +223,15 @@ void ImagePack::CopyPixel(const uint8_t* src, int sw, int sh, bool sbpp4,
 						  int sx, int sy, int dx, int dy)
 {
 	int ptr_dst = (dy * m_width + dx) * BPP4;
-	if (sbpp4) 
+	if (sbpp4)
 	{
 		int ptr_src = ((sh - 1 - sy) * sw + sx) * BPP4;
 		for (int i = 0; i < BPP4; ++i) {
 			GD_ASSERT(ptr_dst < m_width * m_height * BPP4, "err data.");
 			m_pixels[ptr_dst++] = src[ptr_src++];
 		}
-	} 
-	else 
+	}
+	else
 	{
 		int ptr_src = ((sh - 1 - sy) * sw + sx) * BPP3;
 		for (int i = 0; i < BPP3; ++i) {
@@ -242,13 +242,13 @@ void ImagePack::CopyPixel(const uint8_t* src, int sw, int sh, bool sbpp4,
 	}
 }
 
-void ImagePack::CopyPixelClockwise(const uint8_t* src, int sw, int sh, bool sbpp4, 
+void ImagePack::CopyPixelClockwise(const uint8_t* src, int sw, int sh, bool sbpp4,
 								   int sx, int sy, int dx, int dy)
 {
 	int ptr_dst = (dy * m_width + dx) * BPP4;
 	if (sbpp4) {
 		int ptr_src = ((sh - 1 - sy) * sw + sx) * BPP4;
-		for (int i = 0; i < BPP4; ++i) { 
+		for (int i = 0; i < BPP4; ++i) {
 			GD_ASSERT(ptr_dst < m_width * m_height * BPP4, "err data.");
 			m_pixels[ptr_dst++] = src[ptr_src++];
 		}
@@ -262,13 +262,13 @@ void ImagePack::CopyPixelClockwise(const uint8_t* src, int sw, int sh, bool sbpp
 	}
 }
 
-void ImagePack::CopyPixelAntiClockwise(const uint8_t* src, int sw, int sh, bool sbpp4, 
+void ImagePack::CopyPixelAntiClockwise(const uint8_t* src, int sw, int sh, bool sbpp4,
 									   int sx, int sy, int dx, int dy)
 {
 	int ptr_dst = (dy * m_width + dx) * BPP4;
 	if (sbpp4) {
 		int ptr_src = ((sh - 1 - sy) * sw + sx) * BPP4;
-		for (int i = 0; i < BPP4; ++i) { 
+		for (int i = 0; i < BPP4; ++i) {
 			GD_ASSERT(ptr_dst < m_width * m_height * BPP4, "err data.");
 			m_pixels[ptr_dst++] = src[ptr_src++];
 		}

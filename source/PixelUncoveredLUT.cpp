@@ -36,7 +36,7 @@ int PixelUncoveredLUT::GetUncoveredArea(int x, int y, int w, int h) const
 
 int PixelUncoveredLUT::GetMultiArea(int x, int y, int w, int h) const
 {
-	return GetArea(m_multi_area, x, y, w, h);	
+	return GetArea(m_multi_area, x, y, w, h);
 }
 
 bool PixelUncoveredLUT::IntersectConstArea(int x, int y, int w, int h) const

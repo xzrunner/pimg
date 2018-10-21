@@ -20,12 +20,12 @@ OutlineFine::OutlineFine(const CU_VEC<sm::vec2>& raw_border,
 
 void OutlineFine::Trigger(float area_tol, float perimeter_tol)
 {
-	OutlineByAddNode(area_tol, perimeter_tol, INT_MAX, true);	
+	OutlineByAddNode(area_tol, perimeter_tol, INT_MAX, true);
 }
 
 void OutlineFine::Trigger(float area_tol, float perimeter_tol, int max_step)
 {
-	OutlineByAddNode(area_tol, perimeter_tol, max_step, true);		
+	OutlineByAddNode(area_tol, perimeter_tol, max_step, true);
 }
 
 void OutlineFine::CreateOutline(float area_tol, float perimeter_tol, int max_step)
@@ -38,7 +38,7 @@ void OutlineFine::ReduceOutlineCount(float area_tol, float perimeter_tol)
 	ReduceEdge(area_tol, perimeter_tol);
 }
 
-void OutlineFine::OutlineByAddNode(float area_tol, float perimeter_tol, 
+void OutlineFine::OutlineByAddNode(float area_tol, float perimeter_tol,
 										  int max_step, bool reduce_count)
 {
 	m_fine_border.clear();
@@ -109,7 +109,7 @@ void OutlineFine::OutlineByAddNode(float area_tol, float perimeter_tol,
 					sm::dis_square_pos_to_pos(cross_start, a_new_node) >= sm::dis_square_pos_to_pos(a_new_start, a_new_node)) {
 					new_node_pos = (a_idx+1)%m_fine_border.size();
 					m_fine_border[a_idx] = cross_start;
-				} else {					
+				} else {
 					auto itr = m_fine_border.insert(m_fine_border.begin()+((a_idx+1)%m_fine_border.size()), a_new_start);
 					++itr;
 					if (itr == m_fine_border.end()) {
@@ -203,7 +203,7 @@ void OutlineFine::RemoveOneNode(int idx, sm::vec2& new0, sm::vec2& new1, float& 
 }
 
 // todo 太小边的探索尽快终止掉
-void OutlineFine::AddOneNode(int idx, sm::vec2& new_start, sm::vec2& new_end, 
+void OutlineFine::AddOneNode(int idx, sm::vec2& new_start, sm::vec2& new_end,
 									sm::vec2& new_node, float& decrease) const
 {
 	decrease = 0;
@@ -232,15 +232,15 @@ void OutlineFine::AddOneNode(int idx, sm::vec2& new_start, sm::vec2& new_end,
 	}
 	// refine region
 	StartPosExplore(curr, next, best_start_scale, best_end_scale, best_node, best_score);
-	
+
 	new_start = curr + (next-curr)*best_start_scale;
 	new_end = curr + (next-curr)*best_end_scale;
 	new_node = best_node;
 	decrease = best_score;
 }
 
-bool OutlineFine::IsCutTriLegal(const sm::vec2& center, 
-									   const sm::vec2& p0, 
+bool OutlineFine::IsCutTriLegal(const sm::vec2& center,
+									   const sm::vec2& p0,
 									   const sm::vec2& p1) const
 {
 	if (sm::is_segment_intersect_polyline(p0, p1, m_fine_border)) {
@@ -267,8 +267,8 @@ bool OutlineFine::IsAddTriLeagal(const sm::vec2& p0, const sm::vec2& p1, const s
 }
 
 // 已经是算出来的
-void OutlineFine::StartPosExplore(const sm::vec2& p0, const sm::vec2& p1, 
-										 float& start_scale, float& end_scale, 
+void OutlineFine::StartPosExplore(const sm::vec2& p0, const sm::vec2& p1,
+										 float& start_scale, float& end_scale,
 										 sm::vec2& mid, float& score) const
 {
 	for (int s = 1; s < STEPS_COUNT; ++s)
@@ -337,7 +337,7 @@ void OutlineFine::StartPosExplore(const sm::vec2& p0, const sm::vec2& p1,
 }
 
 // 参数的score没算出
-void OutlineFine::EndPosExplore(float step, const sm::vec2& p0, const sm::vec2& p1, float start_scale, 
+void OutlineFine::EndPosExplore(float step, const sm::vec2& p0, const sm::vec2& p1, float start_scale,
 									   float& end_scale, sm::vec2& mid, float& score) const
 {
  	sm::vec2 start_pos = p0 + (p1-p0)*start_scale,
@@ -402,7 +402,7 @@ void OutlineFine::EndPosExplore(float step, const sm::vec2& p0, const sm::vec2& 
 	}
 }
 
-void OutlineFine::MidPosExplore(const sm::vec2& start, const sm::vec2& end, 
+void OutlineFine::MidPosExplore(const sm::vec2& start, const sm::vec2& end,
 									   sm::vec2& mid, float& score) const
 {
 	//// order
@@ -473,7 +473,7 @@ void OutlineFine::ReduceNode(float tolerance)
 			const sm::vec2& next = m_fine_border[(i+1)%m_fine_border.size()];
 			sm::vec2 s0 = curr - prev, s1 = next - curr;
 			// area increase & perimeter decrease
-			if (s0.Cross(s1) >= 0) 
+			if (s0.Cross(s1) >= 0)
 			{
 				float a = sm::get_triangle_area(curr, prev, next);
 				if (a < area_limit && IsAddTriLeagal(prev, next, curr))
@@ -482,9 +482,9 @@ void OutlineFine::ReduceNode(float tolerance)
 					success = true;
 					break;
 				}
-			} 
+			}
 			// area decrease & perimeter decrease
-			else 
+			else
 			{
 				if (IsCutTriLegal(curr, prev, next)) {
 					m_fine_border.erase(m_fine_border.begin()+i);
@@ -522,25 +522,25 @@ void OutlineFine::ReduceEdge(float area_tol, float perimeter_tol)
 			if (start_prev == end_next) {
 				continue;
 			}
-			
+
 			sm::vec2 intersect;
 			bool cross = sm::intersect_line_line(start_prev, start, end, end_next, &intersect);
 			if (!cross) {
 				continue;
 			}
 
-			bool inside_s = sm::is_between(start_prev.x, start.x, intersect.x) 
+			bool inside_s = sm::is_between(start_prev.x, start.x, intersect.x)
 				         && sm::is_between(start_prev.y, start.y, intersect.y);
 			bool inside_e = sm::is_between(end.x, end_next.x, intersect.x)
 				         && sm::is_between(end.y, end_next.y, intersect.y);
 			// add new triangle, area increase & perimeter increase
-			if (!inside_s && !inside_e) 
+			if (!inside_s && !inside_e)
 			{
 				float a = sm::get_triangle_area(intersect, start, end);
-				float len = sm::dis_pos_to_pos(intersect, start) 
+				float len = sm::dis_pos_to_pos(intersect, start)
 					+ sm::dis_pos_to_pos(intersect, end)
 					- sm::dis_pos_to_pos(start, end);
-				if (a < area_limit && len < perimeter_limit && 
+				if (a < area_limit && len < perimeter_limit &&
 					IsAddTriLeagal(start, end, intersect))
 				{
 					m_fine_border[i] = intersect;
@@ -548,9 +548,9 @@ void OutlineFine::ReduceEdge(float area_tol, float perimeter_tol)
 					success = true;
 					break;
 				}
-			} 
+			}
 			// cut triangle, perimeter decrease
-			else 
+			else
 			{
 				assert(!inside_s || !inside_e);
 // 				if (inside_s && inside_e) {
@@ -587,7 +587,7 @@ void OutlineFine::InitRotateLUT()
 
 	m_rotate_lut.clear();
 	m_rotate_lut.reserve(DIR_COUNT);
-	for (int i = 0; i < DIR_COUNT; ++i) 
+	for (int i = 0; i < DIR_COUNT; ++i)
 	{
 		float angle = 2 * SM_PI * i / DIR_COUNT;
 		sm::vec2 dir(cos(angle), sin(angle));

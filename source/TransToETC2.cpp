@@ -87,7 +87,7 @@ void TransToETC2::Prepare(const uint8_t* pixels, int width, int height, int chan
 	GD_ASSERT(channels == 4, "err channels.");
 	if (sm::is_power_of_two(width) &&
 		sm::is_power_of_two(height) &&
-		width == height) 
+		width == height)
 	{
 		m_width = width;
 		m_height = height;
@@ -109,7 +109,7 @@ void TransToETC2::Prepare(const uint8_t* pixels, int width, int height, int chan
 	if (m_type == RGBA) {
 		m_size = m_width * m_height;
 	} else {
-		m_size = m_width * m_height / 2;		
+		m_size = m_width * m_height / 2;
 	}
 
 	m_compressed = new uint8_t[m_size];
@@ -145,7 +145,7 @@ void TransToETC2::Encode()
 	for (int y = 0; y < bh; ++y) {
 		for (int x = 0; x < bw; ++x) {
 			//pimg::ConsoleProgressBar::Print(y * bw + x, bh * bw);
-			switch (m_type) 
+			switch (m_type)
 			{
 			case RGB:
 				{
@@ -162,14 +162,14 @@ void TransToETC2::Encode()
 
 					unsigned int block1, block2;
 					ComputeRGB(decoded, x, y, block1, block2);
-					WriteRGB(output, block1, block2);					
+					WriteRGB(output, block1, block2);
 				}
 				break;
 			case RGBA1:
 				{
 					unsigned int block1, block2;
 					compressBlockETC2RGBA1(m_rgb_data, m_alpha_data, decoded, m_width, m_height, x * 4, y * 4, block1, block2);
-					WriteRGB(output, block1, block2);					
+					WriteRGB(output, block1, block2);
 				}
 				break;
 			default:
@@ -192,7 +192,7 @@ void TransToETC2::OutputHeader(std::ofstream& fout) const
 	fout.write(reinterpret_cast<const char*>(&version[1]), 1);
 
 	// In a PKM-file, the codecs are stored using the following identifiers
-	// 
+	//
 	// identifier                         value               codec
 	// --------------------------------------------------------------------
 	// ETC1_RGB_NO_MIPMAPS                  0                 GL_ETC1_RGB8_OES
@@ -240,7 +240,7 @@ void TransToETC2::OutputHeader(std::ofstream& fout) const
 	WriteBigEndian2byteWord(&h, fout);
 
 	WriteBigEndian2byteWord(&w, fout);
-	WriteBigEndian2byteWord(&h, fout);	
+	WriteBigEndian2byteWord(&h, fout);
 }
 
 void TransToETC2::ComputeRGB(uint8_t* decoded, int x, int y, unsigned int& block1, unsigned int& block2)

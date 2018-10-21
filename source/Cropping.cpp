@@ -13,7 +13,7 @@ Cropping::Cropping(const uint8_t* pixels, int width, int height, int channels, b
 	, m_channels(channels)
 	, m_flags(NULL)
 {
-	if (check_duplicate) 
+	if (check_duplicate)
 	{
 		int sz = m_width * m_height;
 		m_flags = new bool[sz];

@@ -8,7 +8,7 @@ Condense::Condense(const uint8_t* pixels, int width, int height)
 	: m_pixels(pixels)
 	, m_width(width)
 	, m_height(height)
-{	
+{
 }
 
 Rect Condense::GetRegion() const

@@ -9,7 +9,7 @@
 namespace pimg
 {
 
-CRectPostProcessor::CRectPostProcessor(const CU_VEC<CRect>& rects, 
+CRectPostProcessor::CRectPostProcessor(const CU_VEC<CRect>& rects,
 									 int width, int height,
 									 bool* ori_pixels)
 	: m_width(width)
@@ -84,7 +84,7 @@ void CRectPostProcessor::InsertItem(const CRect& r)
 void CRectPostProcessor::MoveToNoCover()
 {
 	std::multiset<Item*, ItemCmp>::const_iterator itr;
-	for (itr = m_items.begin(); itr != m_items.end(); ++itr) 
+	for (itr = m_items.begin(); itr != m_items.end(); ++itr)
 	{
 		Item* item = *itr;
 
@@ -148,7 +148,7 @@ bool CRectPostProcessor::Merge()
 	bool dirty = false;
 
 	std::multiset<Item*, ItemCmp>::const_iterator itr;
-	for (itr = m_items.begin(); itr != m_items.end(); ) 
+	for (itr = m_items.begin(); itr != m_items.end(); )
 	{
 		Item* item = *itr;
 		const CRect& r = item->r;
@@ -206,7 +206,7 @@ bool CRectPostProcessor::Merge()
 void CRectPostProcessor::Align()
 {
 	std::multiset<Item*, ItemCmp>::const_iterator itr;
-	for (itr = m_items.begin(); itr != m_items.end(); ++itr) 
+	for (itr = m_items.begin(); itr != m_items.end(); ++itr)
 	{
 		Item* item = *itr;
 
@@ -248,7 +248,7 @@ void CRectPostProcessor::Reduce()
 	const int LIMIT_AREA = 4;
 
 	std::multiset<Item*, ItemCmp>::const_iterator itr;
-	for (itr = m_items.begin(); itr != m_items.end(); ) 
+	for (itr = m_items.begin(); itr != m_items.end(); )
 	{
 		Item* item = *itr;
 		int area = GetItemDataSize(item);
@@ -261,7 +261,7 @@ void CRectPostProcessor::Reduce()
 		Item* enlarge_item = NULL;
 
 		std::multiset<Item*, ItemCmp>::const_iterator itr2;
-		for (itr2 = m_items.begin(); itr2 != m_items.end(); ++itr2) 
+		for (itr2 = m_items.begin(); itr2 != m_items.end(); ++itr2)
 		{
 			if (itr == itr2) {
 				continue;
@@ -279,7 +279,7 @@ void CRectPostProcessor::Reduce()
 		}
 
 		if (enlarge_item) {
-			
+
 			itr = m_items.erase(itr);
 		} else {
 			++itr;
@@ -311,10 +311,10 @@ void CRectPostProcessor::LoadPixels(const CU_VEC<CRect>& rects, bool* ori_pixels
 		Item* item = new Item(r);
 		m_items.insert(item);
 		for (int y = r.y; y < r.y + r.h; ++y) {
-			if (y < 0) { continue; } 
+			if (y < 0) { continue; }
 			else if (y >= m_height) { break; }
 			for (int x = r.x; x < r.x + r.w; ++x) {
-				if (x < 0) { continue; } 
+				if (x < 0) { continue; }
 				else if (x >= m_width) { break; }
 				m_pixels[y*m_width+x]->Add(item);
 			}
@@ -443,7 +443,7 @@ bool CRectPostProcessor::IsAlignBetter(Item* item, Direction dir) const
 	int down = r.y, up = r.y+r.h-1;
 	int left_next = left-1, right_next = right+1;
 	int down_next = down-1, up_next = up+1;
-	
+
 	if (dir == e_left && item->to_left) {
 		int count = 0;
 		for (int y = down; y <= up; ++y) {
@@ -582,7 +582,7 @@ bool CRectPostProcessor::MoveItem(Item* item, Direction dir)
 	bool move = true;
 // 	// test src edge is covered
 // 	if (dir == e_right && left >= 0 ||
-// 		dir == e_left && right < m_width) 
+// 		dir == e_left && right < m_width)
 // 	{
 // 		int offset = (dir == e_right ? left : right);
 // 		for (int y = down; y <= up; ++y) {
@@ -591,8 +591,8 @@ bool CRectPostProcessor::MoveItem(Item* item, Direction dir)
 // 				break;
 // 			}
 // 		}
-// 	} 
-// 	else if (dir == e_up && down >= 0 
+// 	}
+// 	else if (dir == e_up && down >= 0
 // 		|| dir == e_down && up < m_height)
 // 	{
 // 		int offset = (dir == e_up ? down : up);
@@ -614,7 +614,7 @@ bool CRectPostProcessor::MoveItem(Item* item, Direction dir)
 		int offset = (dir == e_right ? right_next : left_next);
 		bool all_full = true;
 		for (int y = down; y <= up; ++y) {
-			if (y >= 0 && y < m_height && 
+			if (y >= 0 && y < m_height &&
 				offset >= 0 && offset < m_width &&
 				m_pixels[y*m_width+offset]->IsEmpty()) {
 				all_full = false;
@@ -631,7 +631,7 @@ bool CRectPostProcessor::MoveItem(Item* item, Direction dir)
 		int offset = (dir == e_up ? up_next : down_next);
 		bool all_full = true;
 		for (int x = r.x; x <= right; ++x) {
-			if (x >= 0 && x < m_width && 
+			if (x >= 0 && x < m_width &&
 				offset >= 0 && offset < m_height &&
 				m_pixels[offset*m_width+x]->IsEmpty()) {
 				all_full = false;
@@ -647,7 +647,7 @@ bool CRectPostProcessor::MoveItem(Item* item, Direction dir)
 	}
 
 	// remove from src
-	if (dir == e_right && left >= 0 && left < m_width || 
+	if (dir == e_right && left >= 0 && left < m_width ||
 		dir == e_left && right >= 0 && right < m_width)
 	{
 		int offset = (dir == e_right ? left : right);
@@ -681,7 +681,7 @@ bool CRectPostProcessor::MoveItem(Item* item, Direction dir)
 				Pixel* p = m_pixels[y*m_width+offset];
 				p->Add(item);
 			}
-		}				
+		}
 	}
 	else if (dir == e_up && up_next >= 0 && up_next < m_height
 		|| dir == e_down && down_next >= 0 && down_next < m_height)
@@ -944,7 +944,7 @@ CRect CRectPostProcessor::GetRealDataCRect(const CRect& src) const
 
 void CRectPostProcessor::CondenseCovered(const CRect& r, PixelCoveredLUT* covered)
 {
-	while (true) 
+	while (true)
 	{
 		bool find = false;
 		for (int x = r.x; x < r.x + r.w; ++x) {

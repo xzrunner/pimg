@@ -25,7 +25,7 @@ private:
 	int m_width, m_height;
 
 }; // Condense
- 
+
 }
 
 #endif // _PIMG_CONDENSE_H_

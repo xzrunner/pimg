@@ -13,7 +13,7 @@ PixelEdgeTable::PixelEdgeTable(const bool* pixels, int width, int height)
 int PixelEdgeTable::GetCRectArea(int x, int y, int w, int h, int limit) const
 {
 	int area = 0;
-	std::map<int, Line>::const_iterator 
+	std::map<int, Line>::const_iterator
 		itr_y_start = m_lines.lower_bound(y),
 		itr_y_end = m_lines.lower_bound(y+h),
 		itr;
@@ -54,13 +54,13 @@ int PixelEdgeTable::GetCRectArea(int x, int y, int w, int h, int limit) const
 				break;
 			}
 		}
-	}	
+	}
 	return area;
 }
 
 void PixelEdgeTable::CutByCRect(int x, int y, int w, int h, int& left_area)
 {
- 	std::map<int, Line>::iterator 
+ 	std::map<int, Line>::iterator
  		itr_y_start = m_lines.lower_bound(y),
  		itr_y_end = m_lines.upper_bound(y+h-1),
  		itr;

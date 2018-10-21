@@ -14,7 +14,7 @@ class RegularRectCondense;
 class RegularRectMerge
 {
 public:
-	RegularRectMerge(const CU_VEC<CRect>& rects, int width, 
+	RegularRectMerge(const CU_VEC<CRect>& rects, int width,
 		int height, bool* ori_pixels);
 	~RegularRectMerge();
 

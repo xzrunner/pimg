@@ -20,7 +20,7 @@ public:
 	~RegularRectCut();
 
 	void AutoCut();
-	
+
 	const CU_VEC<CRect>& GetResult() { return m_result; }
 
 	// statics

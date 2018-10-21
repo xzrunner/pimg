@@ -9,7 +9,7 @@
 namespace pimg
 {
 
-RegularRectMerge::RegularRectMerge(const CU_VEC<CRect>& rects, int width, 
+RegularRectMerge::RegularRectMerge(const CU_VEC<CRect>& rects, int width,
 								   int height, bool* ori_pixels)
 	: m_width(width)
 	, m_height(height)
@@ -34,7 +34,7 @@ void RegularRectMerge::Merge()
 
 	m_condense->Condense(CRect(0, 0, m_width, m_height));
 
-	while (true) 
+	while (true)
 	{
 		CU_VEC<CRect> rects;
 		m_condense->GetSortedCRects(rects);
@@ -55,13 +55,13 @@ void RegularRectMerge::Merge()
 		//int r_min = -1;
 // 		for (int i = 1, n = rects.size(); i < n; ++i) {
 // 			const CRect& r1 = rects[i];
-// 
+//
 // 			int left = std::min(r0.x, r1.x),
 // 				right = std::max(r0.x + r0.w, r1.x + r1.w);
 // 			int down = std::min(r0.y, r1.y),
 // 				up = std::max(r0.y + r0.h, r1.y + r1.h);
 // 			CRect mr(left, down, right - left, up - down);
-// 
+//
 // 			int cost = ComputeCost(mr, rects);
 // 			if (cost == 0) {
 // 				cost_min = 0;
@@ -87,7 +87,7 @@ void RegularRectMerge::Merge()
 	 				right = std::max(r0.x + r0.w, r1.x + r1.w);
 	 			int down = std::min(r0.y, r1.y),
 	 				up = std::max(r0.y + r0.h, r1.y + r1.h);
-	 			CRect mr(left, down, right - left, up - down);	
+	 			CRect mr(left, down, right - left, up - down);
 	 			int cost = ComputeCost(mr, rects);
 	 			if (cost == 0) {
 	 				cost_min = 0;
@@ -142,14 +142,14 @@ void RegularRectMerge::GetResult(CU_VEC<CRect>& result) const
 int RegularRectMerge::ComputeCost(const CRect& r, const CU_VEC<CRect>& rects) const
 {
 	int cost = 0;
-	for (int i = 0, n = rects.size(); i < n; ++i) 
+	for (int i = 0, n = rects.size(); i < n; ++i)
 	{
 		const CRect& b = rects[i];
 
 		if (r.x > b.x && (r.x + r.w < b.x + b.w) &&
 			r.y < b.y && (r.y + r.h > b.y + b.h)) {
 			return INT_MAX;
-		} 
+		}
 		if (b.x > r.x && (b.x + b.w < r.x + r.w) &&
 			b.y < r.y && (b.y + b.h > r.y + r.h)) {
 			return INT_MAX;
@@ -158,7 +158,7 @@ int RegularRectMerge::ComputeCost(const CRect& r, const CU_VEC<CRect>& rects) co
 		if (r.x > b.x && (r.x < b.x + b.w) && r.y > b.y && (r.y < b.y + b.h) &&
 			(r.x + r.w > b.x + b.w) && (r.y + r.h > b.y + b.h)) {
 			cost += (b.x + b.w - r.x) * (b.y + b.h - r.y);
-		} 
+		}
 		if (r.x > b.x && (r.x < b.x + b.w) && (r.y + r.h > b.y) && (r.y + r.h < b.y + b.h) &&
 			(r.x + r.w > b.x + b.w) && (r.y < b.y)) {
 			cost += (b.x + b.w - r.x) * (r.y + r.h - 1 - b.y);

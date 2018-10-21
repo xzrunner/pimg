@@ -30,7 +30,7 @@ private:
 	struct Grid
 	{
 		Grid(const CRect& r) : r(r) {}
-		CRect r;		
+		CRect r;
 	}; // Grid
 
 	class AreaCmp

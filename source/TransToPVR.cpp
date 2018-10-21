@@ -59,7 +59,7 @@ void TransToPVR::InitSrcImage(const uint8_t* pixels, int width, int height, int 
 	GD_ASSERT(channels == 4, "err channels.");
 	if (sm::is_power_of_two(width) &&
 		sm::is_power_of_two(height) &&
-		width == height) 
+		width == height)
 	{
 		m_width = width;
 		m_height = height;
