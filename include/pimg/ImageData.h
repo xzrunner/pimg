@@ -11,7 +11,7 @@ class ImageData : boost::noncopyable
 {
 public:
 	ImageData(bool pre_mul_alpha);
-	virtual ~ImageData();
+	~ImageData();
 
 	bool LoadFromFile(const std::string& filepath);
 
@@ -19,6 +19,8 @@ public:
 	int GetWidth() const { return m_width; }
 	int GetHeight() const { return m_height; }
 	int GetFormat() const { return m_format; }
+
+    void SetPixelData(const uint8_t* pixels);
 
 private:
 	bool m_pre_mul_alpha;

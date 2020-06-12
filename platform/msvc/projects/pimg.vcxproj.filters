@@ -44,6 +44,15 @@
     <ClCompile Include="..\..\..\source\RegularRectMerge.cpp">
       <Filter>atuo_rect_cut</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\FilterKernel.cpp">
+      <Filter>filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Filters.cpp">
+      <Filter>filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Resize.cpp">
+      <Filter>filter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\pimg\Condense.h" />
@@ -93,6 +102,18 @@
     <ClInclude Include="..\..\..\include\pimg\CRect.h">
       <Filter>atuo_rect_cut</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\FilterKernel.h">
+      <Filter>filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\Filters.h">
+      <Filter>filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\FilterType.h">
+      <Filter>filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pimg\Resize.h">
+      <Filter>filter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="outline">
@@ -103,6 +124,9 @@
     </Filter>
     <Filter Include="atuo_rect_cut">
       <UniqueIdentifier>{08281556-1998-49cc-b26e-d2e1ff00290c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="filter">
+      <UniqueIdentifier>{833a1d89-4da8-442f-b427-935dd05a839e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
